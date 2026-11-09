@@ -1,0 +1,19 @@
+name = "trocai-portfolio-api"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# Domínio do Worker (crie o registro no DNS da zona trocai.bia.lu; a Cloudflare faz isso sozinha
+# quando você adiciona o "Custom Domain" nas configurações do Worker)
+routes = [
+  { pattern = "api.portfolio.trocai.bia.lu", custom_domain = true }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "trocai-portfolio-analytics"
+database_id = "07311c40-a473-48f5-a817-2ca0442b5039"
+
+[vars]
+GOOGLE_CLIENT_ID = "COLE_AQUI_O_CLIENT_ID.apps.googleusercontent.com"
+
+# Secret (não vai no arquivo): wrangler secret put DASH_KEY
