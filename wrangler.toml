@@ -1,5 +1,5 @@
 name = "trocai-portfolio-api"
-main = "worker.js"
+main = "worker/worker.js"
 compatibility_date = "2025-09-01"
 
 # Domínio do Worker (crie o registro no DNS da zona trocai.bia.lu; a Cloudflare faz isso sozinha
