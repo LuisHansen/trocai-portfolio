@@ -995,7 +995,7 @@ footer a{color:var(--terra-700)}
   });
   function goTo(e){
     var href=this.getAttribute('href');var sec=document.querySelector(href);
-    if(!sec)return;e.preventDefault();setOpen(sec,true);
+    if(!sec)return;e.preventDefault();if(sec.classList.contains('sec'))setOpen(sec,true);
     var top=sec.getBoundingClientRect().top+window.pageYOffset-(window.innerWidth<=980?84:0);
     window.scrollTo({top:top,behavior:'smooth'});
     try{history.replaceState(null,'',href)}catch(err){}
@@ -1081,7 +1081,7 @@ footer a{color:var(--terra-700)}
 <script>
 /* ===== Troca Aí · analytics in-house + lista de espera ===== */
 (function(){
-  var API='https://api.portfolio.trocai.bia.lu';
+  var API='https://trocai-api.bia.lu';
   var GOOGLE_CLIENT_ID='175164504721-7pvucj1tqp64e5tkgt1c9el0b51he03n.apps.googleusercontent.com';
   var SECTIONS=['O problema','Como foi pensado','Evidências de campo','A solução','A matemática das trocas','O protótipo','Validação e preço','O mercado','Modelo de negócio','A equipe','Financeiro','Próximos passos','Impacto'];
   function uid(){try{return crypto.randomUUID()}catch(e){return 'x'+Math.random().toString(36).slice(2)+Date.now().toString(36)}}

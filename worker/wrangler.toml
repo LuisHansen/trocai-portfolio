@@ -5,7 +5,7 @@ compatibility_date = "2026-10-01"
 # Domínio do Worker (crie o registro no DNS da zona trocai.bia.lu; a Cloudflare faz isso sozinha
 # quando você adiciona o "Custom Domain" nas configurações do Worker)
 routes = [
-  { pattern = "api.portfolio.trocai.bia.lu", custom_domain = true }
+  { pattern = "trocai-api.bia.lu", custom_domain = true }
 ]
 
 [[d1_databases]]
