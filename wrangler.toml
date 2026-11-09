@@ -1,6 +1,8 @@
 name = "trocai-portfolio-api"
 main = "worker/worker.js"
 compatibility_date = "2025-09-01"
+# Preserva variáveis e secrets definidos no painel (ex.: DASH_KEY) a cada deploy
+keep_vars = true
 
 # Domínio do Worker (crie o registro no DNS da zona trocai.bia.lu; a Cloudflare faz isso sozinha
 # quando você adiciona o "Custom Domain" nas configurações do Worker)
