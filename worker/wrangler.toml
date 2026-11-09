@@ -14,6 +14,6 @@ database_name = "trocai-portfolio-analytics"
 database_id = "07311c40-a473-48f5-a817-2ca0442b5039"
 
 [vars]
-GOOGLE_CLIENT_ID = "COLE_AQUI_O_CLIENT_ID.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = "175164504721-7pvucj1tqp64e5tkgt1c9el0b51he03n.apps.googleusercontent.com"
 
 # Secret (não vai no arquivo): wrangler secret put DASH_KEY
