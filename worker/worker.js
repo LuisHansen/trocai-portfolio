@@ -29,7 +29,9 @@ export default {
 
     try {
       if (url.pathname === '/collect' && request.method === 'POST') {
-        ctx.waitUntil(handleCollect(request, env));
+        // O corpo precisa ser lido ANTES de responder: depois da resposta o stream do request é fechado.
+        const text = await request.text();
+        ctx.waitUntil(handleCollect(text, request, env).catch(e => console.error('collect failed:', e && e.message || e)));
         return new Response(null, { status: 204, headers: cors });
       }
       if (url.pathname === '/waitlist' && request.method === 'POST') {
@@ -94,9 +96,9 @@ const clean = (v, n = 200) => (v == null ? null : String(v).slice(0, n));
 
 /* ---------------- /collect ---------------- */
 
-async function handleCollect(request, env) {
+async function handleCollect(text, request, env) {
   let body;
-  try { body = await request.json(); } catch { return; }
+  try { body = JSON.parse(text); } catch (e) { console.error('collect: corpo inválido'); return; }
   const events = Array.isArray(body.events) ? body.events : [body];
   if (!events.length) return;
   const g = geo(request);
